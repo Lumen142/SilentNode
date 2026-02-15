@@ -5,11 +5,11 @@ async function register(data, userData) {
     try {
         const { username, pass, pass_rep } = data;
         if (userData[username]) {
-            return { id: 1, msg: "The user is already registered." };
+            return { type : "error", id: 1, msg: "The user is already registered." };
         }
 
         if (pass !== pass_rep) {
-            return { id: 2, msg: `The passwords aren't the same!` };
+            return { type : "error", id: 2, msg: `The passwords aren't the same!` };
         }
 
         const hashedPass = await argon2.hash(pass);
@@ -26,6 +26,21 @@ async function register(data, userData) {
     }
 }
 
+async function login(data, userData, rawUser, clients) {
+    if (!userData[data.username]) {
+        return { type: "error", id: 4, msg: 'User not found.' };
+    }
+
+    if (await argon2.verify(rawUser.pass, data.pass)) {
+        if (clients.find(user => user.username == data.username)) {
+            return { type: "error", id: 6, msg: "This user is already active." }
+        }
+    }
+
+    return true;
+}
+
 module.exports = {
+    login,
     register
 }

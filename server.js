@@ -7,8 +7,7 @@ const io = new Server(httpServer, {
     cors: { origin: "*" }
 });
 
-const register = require("./packages/server/Register.js");
-const login = require("./packages/server/Login.js");
+const usermanager = require("./packages/server/userManager.js");
 
 const chatHistoryBeta = []; //for beta
 let clients = []
@@ -27,7 +26,7 @@ async function main() {
 
                 const msg = data.msg;
                 if (msg.trim() == "") return;
-                console.log(`Recived: ${msg}`);
+                console.log(`${clientInfo.username}: ${msg}`);
                 const formated = `${clientInfo.username}: ${msg}`;
                 socket.broadcast.emit('message', formated);
                 chatHistoryBeta.push(formated);
@@ -39,24 +38,25 @@ async function main() {
 
         socket.on('register', async (data, callback) => {
             try {
-                const res = await register.register(data, userData);
+                const res = await usermanager.register(data, userData);
 
-                if (res != null && res != undefined && typeof res == "object") {
-                    userData[data.username] = res;
-                    clients.push(
-                        {
-                            "username" : data.username,
-                            "id" : socket.id
-                        }
-                    )
-
-                    callback({ id: 2, msg: "Registration completed." });
-
-                    socket.emit(`chatHistory`, chatHistoryBeta);
-                    socket.emit(`message`, `Your ID: ${socket.id}`);   
-                } else {
-                    callback(res)
+                if (res.type && res.type == "error") {
+                    callback(res);
+                    return;
                 }
+
+                userData[data.username] = res;
+                clients.push(
+                    {
+                        "username": data.username,
+                        "id": socket.id
+                    }
+                )
+
+                callback({ id: 2, msg: "Registration completed." });
+
+                socket.emit(`chatHistory`, chatHistoryBeta);
+                socket.emit(`message`, `Your ID: ${socket.id}`);  
             } catch (error) {
                 console.log(error)
             }
@@ -66,7 +66,7 @@ async function main() {
             let rawUser = userData[data.username];
 
             try {
-                const res = await login.login(data, userData, rawUser, clients);
+                const res = await usermanager.login(data, userData, rawUser, clients);
                 if (res != true) {
                     callback(res);
                     return;

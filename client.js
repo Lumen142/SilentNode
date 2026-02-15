@@ -10,6 +10,7 @@ const questionService = require("./packages/QuestionService.js");
 // libs
 
 const io = require("socket.io-client");
+const readline = require('node:readline');
 
 const fs = require("fs");
 const uuid = require("uuid");
@@ -35,7 +36,10 @@ async function main() {
             if (l == true) {
                 inputService.clearLine();
                 const answer = await inputService.newInput("Enter Message: ")
-                socket.emit("message", {token : "123", msg : answer})
+                process.stdout.moveCursor(0,-1);
+                process.stdout.cursorTo(0);
+                process.stdout.clearLine(0);
+                socket.emit("message", {msg : answer})
             }
         }
     }
