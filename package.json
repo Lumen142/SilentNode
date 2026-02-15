@@ -1,0 +1,19 @@
+{
+  "name": "avakado-chat",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {},
+  "keywords": [],
+  "author": "avakado",
+  "type" : "commonjs",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "enquirer": "^2.4.1",
+    "argon2": "^0.44.0",
+    "jsonwebtoken": "^9.0.3",
+    "socket.io": "^4.8.3",
+    "socket.io-client": "^4.8.3",
+    "uuid": "^13.0.0"
+  }
+}
