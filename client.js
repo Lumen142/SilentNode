@@ -1,6 +1,6 @@
 // client
 
-const getip = require("./client/GetIP.js")
+const getip = require("./packages/client/GetIP.js");
 
 // packages
 
@@ -57,7 +57,7 @@ async function main() {
                     return loginpanel();
                 } else {
                     l = true
-                    inputService.printmsg(response.message)
+                    inputService.printmsg(response.msg)
                     messageLoop();
                 }
             })
@@ -72,7 +72,7 @@ async function main() {
                     return loginpanel();
                 } else {
                     l = true
-                    inputService.printmsg(response.message)
+                    inputService.printmsg(response.msg)
                     messageLoop();
                 }
             })

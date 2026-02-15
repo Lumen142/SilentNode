@@ -1,5 +1,4 @@
 const { createServer } = require("http");
-const argon2 = require('argon2');
 const { Server } = require('socket.io');
 const fs = require('fs').promises;
 
@@ -8,8 +7,8 @@ const io = new Server(httpServer, {
     cors: { origin: "*" }
 });
 
-const register = require("./server/Register.js");
-const login = require("./server/Login.js");
+const register = require("./packages/server/Register.js");
+const login = require("./packages/server/Login.js");
 
 const chatHistoryBeta = []; //for beta
 let clients = []
@@ -67,7 +66,7 @@ async function main() {
             let rawUser = userData[data.username];
 
             try {
-                const res = await login.login(data, userData, rawUser);
+                const res = await login.login(data, userData, rawUser, clients);
                 if (res != true) {
                     callback(res);
                     return;

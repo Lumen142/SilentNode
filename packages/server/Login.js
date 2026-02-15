@@ -1,6 +1,6 @@
 const argon2 = require('argon2');
 
-async function login(data, userData, rawUser) {
+async function login(data, userData, rawUser, clients) {
     if (!userData[data.username]) {
         return { type: "error", id: 4, msg: 'User not found.' };
     }

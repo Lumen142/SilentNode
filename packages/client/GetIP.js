@@ -1,4 +1,4 @@
-const questionService = require("../packages/QuestionService.js");
+const questionService = require("../QuestionService.js");
 
 async function getIP() {
     let serverInfo = {
