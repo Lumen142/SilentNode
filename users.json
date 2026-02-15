@@ -1,0 +1,18 @@
+{
+  "Alex": {
+    "pass": "$argon2id$v=19$m=65536,t=3,p=4$SpffQetSI6kE4on9Ti7+uw$hHnikpJ/KOoeSQd+uyiWOdEGeHdl02rAth0YUhbHtT0",
+    "uuid": "2987c01c-2dd0-4d9f-82f9-010fb976dc1b"
+  },
+  "Mehmet": {
+    "pass": "$argon2id$v=19$m=65536,t=3,p=4$3GprCZUUdS3fi3OyIhqfDQ$JYZkNvLc+ojAd4zn5a4a/i/O8qSk3YdarIILdt5YDvE",
+    "uuid": "39839a10-28da-4237-b6c1-9367a92d8dff"
+  },
+  "Ahmet": {
+    "pass": "$argon2id$v=19$m=65536,t=3,p=4$c4AK6lLXESUanrQVLTtZNg$0zbLyqW2s7bQ/0nW4zjTWJwt7gypo4SpA7WukHtbkgY",
+    "uuid": "2adfa2c3-9444-4456-a2f3-15c4f2724386"
+  },
+  "JJ": {
+    "pass": "$argon2id$v=19$m=65536,t=3,p=4$PFrPMU4trXyeekIOorkfPg$nvw0eF1Jp0eKlYKp8fR196it71vZaZAlsn9skvsG1rM",
+    "uuid": "66c5e810-b506-43d7-ba92-f90676e2328b"
+  }
+}
