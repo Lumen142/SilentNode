@@ -1,29 +1,37 @@
 // client
 
-const getip = require("./packages/client/GetIP.js");
+import IPInfo from "../src/packages/client/IPInfo.js"
 
 // packages
 
-const inputService = require("./packages/InputService.js")
-const questionService = require("./packages/QuestionService.js");
+import inputService from "../src/packages/InputService.js"
+import { Select, Form, Input } from "../src/packages/QuestionService.js"
 
 // libs
 
-const io = require("socket.io-client");
-const readline = require('node:readline');
+import path from 'path'
 
-const fs = require("fs");
-const uuid = require("uuid");
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+import { io } from "socket.io-client"
+import readline from 'node:readline'
+
+import fs from "fs"
+import { v4 as uuid } from "uuid"
 
 // files
 
-const errors = JSON.parse(fs.readFileSync("./status-codes/error.json", "utf-8"))
+const errors = JSON.parse(
+  fs.readFileSync(path.join(__dirname, '../src/status-codes/error.json'), 'utf-8')
+);
 //const success = JSON.parse(fs.readFileSync("./status-codes/success.json", "utf-8"))
 
 // main
 
 async function main() {
-    let serverAddress = await getip.getIP();
+    let serverAddress = await IPInfo.IPInfo();
 
     const socket = io(serverAddress)
 
@@ -45,11 +53,11 @@ async function main() {
     }
 
     async function loginpanel() {
-        const chose = await questionService.Select("Login or Register?", [{ name: "Login" }, { name: "Register" }])
-        const examplePassword = uuid.v4();
+        const chose = await Select("Login or Register?", [{ name: "Login" }, { name: "Register" }])
+        const examplePassword = uuid();
 
         if (chose == "Register") {
-            const form = await questionService.Form("Register Form", [
+            const form = await Form("Register Form", [
                 { name: "username", message: "User name?", initial: "Alex" },
                 { name: "pass", message: "Password", initial: examplePassword },
                 { name: "pass_rep", message: "Password Confirm", initial: examplePassword }
@@ -66,7 +74,7 @@ async function main() {
                 }
             })
         } else {
-            const form = await questionService.Form("Login Form", [
+            const form = await Form("Login Form", [
                 { name: "username", message: "User name?", initial: "Alex" },
                 { name: "pass", message: "Password", initial: examplePassword },
             ])
@@ -110,4 +118,4 @@ async function main() {
     })
 }
 
-main();
+export {main as cl_main}

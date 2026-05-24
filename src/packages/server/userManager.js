@@ -1,5 +1,5 @@
-const argon2 = require('argon2');
-const { v4: uuidv4 } = require('uuid');
+import argon2 from 'argon2';
+import { v4 as uuidv4 } from 'uuid';
 
 async function register(data, userData) {
     try {
@@ -40,7 +40,7 @@ async function login(data, userData, rawUser, clients) {
     return true;
 }
 
-module.exports = {
+export default {
     login,
     register
-}
+};
