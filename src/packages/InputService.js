@@ -1,4 +1,4 @@
-const readline = require('node:readline');
+import readline from 'node:readline'
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -28,9 +28,9 @@ function printmsg(msg) {
     rl.prompt(true);
 }
 
-module.exports = {
+export default {
     newInput,
     closeInput,
     printmsg,
     clearLine
-}
+};

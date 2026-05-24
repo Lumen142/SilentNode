@@ -1,4 +1,5 @@
-const { Input, Select, Form } = require('enquirer');
+import enquirer from "enquirer"
+const { Select, Form, Input } = enquirer
 
 async function InputFunc(title) {
   const promptInstance = new Input({
@@ -42,8 +43,4 @@ async function FormFunc(title, choices) {
   return response;
 }
 
-module.exports = {
-  "Input" : InputFunc,
-  "Form" : FormFunc,
-  "Select" : SelectFunc
-}
+export { InputFunc as Input, FormFunc as Form, SelectFunc as Select };

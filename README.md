@@ -1,79 +1,105 @@
-# 🔒 SilentNode  
+# SilentNode
 
-> 100% Self-Hosted. 100% Private. 100% Yours.
+> Fully self-hosted private communication through the terminal.
 
-SilentNode is a fully self-hosted platform that allows you to connect with your friends securely — without relying on third-party services. You own your data, control your infrastructure, and decide who has access.
-
-In a world where privacy is becoming rare, SilentNode puts it back in your hands. 🛡️
-
----
-
-## 🚀 Why SilentNode?
-
-Most communication platforms store your data on centralized servers. SilentNode changes that.
-
-With SilentNode:
-
-- 🏠 You host it yourself  
-- 🔐 Your data stays on your server  
-- 👥 Only invited users can join  
-- 🌍 No tracking, no data selling, no surveillance  
+SilentNode is a terminal-based communication platform focused on privacy, simplicity, and independence.  
+Create your own private communication server and stay fully in control of your data.
 
 ---
 
-## ✨ Features
+## Features
 
-- 🧩 Fully self-hosted architecture  
-- 👥 Private friend-based network  
-- 🗂️ Full data ownership  
-- ⚡ Lightweight & performant  
-- 🛠️ Easy deployment  
-
----
-
-## 🏗️ How It Works
-
-SilentNode runs entirely on your own server (VPS, home server, Raspberry Pi, etc.).
-
-1. Deploy SilentNode  
-2. Create your private node  
-3. Invite your friends  
-4. Communicate securely  
-
-No middleman. No centralized authority.
+- 100% Self-Hosted
+- Terminal-based interface
+- Account system
+- Temporary chat history
+- Privacy-focused architecture
+- No centralized infrastructure
+- Lightweight and fast
 
 ---
 
-## 🤝 Contributing
+## Privacy
 
-Contributions are welcome!
+SilentNode is designed with privacy as a priority.
 
-1. Fork the repository  
-2. Create a new branch  
-3. Commit your changes  
-4. Submit a pull request
-
-Let’s build a truly private internet together. 🚀
+- No data collection
+- No third-party services
+- No centralized servers
+- Your server, your data, your control
 
 ---
 
-## 📜 License
+## Installation
 
-This project is licensed under the Apache-2.0 license.  
-See the `LICENSE` file for details.
-
----
-
-## 🌟 Support the Project
-
-If you like SilentNode:
-
-- ⭐ Star the repository  
-- 🍴 Fork it  
-- 📢 Share it  
+```bash
+npm install
+```
 
 ---
 
-### 💡 SilentNode — Own Your Network.
+## Start
 
-> Privacy is not a feature. It's a right.
+```bash
+node index.js
+```
+
+Then continue through the terminal menu.
+
+---
+
+## Technologies
+
+- JavaScript
+- Node.js
+
+---
+
+## Philosophy
+
+SilentNode exists for users who want:
+
+- Complete control
+- Independent infrastructure
+- Private communication
+- Minimal and clean software
+
+---
+
+## License
+
+Licensed under the Apache License 2.0.
+
+https://www.apache.org/licenses/LICENSE-2.0
+
+---
+
+# Türkçe
+
+## SilentNode Nedir?
+
+SilentNode, tamamen self-host çalışan terminal tabanlı özel iletişim uygulamasıdır.  
+Kendi özel iletişim sunucunuzu kurarak bağımsız ve gizli şekilde haberleşebilirsiniz.
+
+## Özellikler
+
+- %100 Self-Host yapı
+- Hesap sistemi
+- Geçici sohbet geçmişi
+- Veri toplamayan yapı
+- Gizlilik odaklı sistem
+- Hafif ve hızlı çalışma
+
+## Kurulum
+
+```bash
+npm install
+```
+
+## Başlatma
+
+```bash
+node index.js
+```
+
+Ardından terminal menüsünden ilerleyebilirsiniz.
